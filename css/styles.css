@@ -1,0 +1,1088 @@
+/*****************************************************************************************************************************************************************************/
+/*                                                                                                                                                                           */
+/*                                                                  Estilos para el Proyecto GeoFrame                                                                        */
+/*                                                                                                                                                                           */
+/*****************************************************************************************************************************************************************************/
+/*                                                                                                                                                                           */
+/* Autor: Magallanes López Carlos Gabriel                                                                                                                                    */
+/* Versión del Proyecto: 1.0                                                                                                                                                 */
+/* Correo: cgmagallanes23@gmail.com                                                                                                                                          */
+/* Ultima Modificación: 25/03/2026                                                                                                                                           */
+/*                                                                                                                                                                           */
+/*****************************************************************************************************************************************************************************/
+
+
+/* Propiedades Custom para HTML */
+:root {
+
+    --sky:    #00bfff;
+    --sky2:   #0099cc;
+    --dark:   #003344;
+    --green:  #4caf50;
+    --green2: #388e3c;
+    --yellow: #ffd700;
+    --orange: #ff6b35;
+    --white:  #ffffff;
+    --black:  #000000;
+    --pixel:  #1a1a2e;
+
+}
+
+/* Reset de Selector Global y sus PseudoElementos */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* Configurar Scroll Suave para Anclas */
+html {scroll-behavior:smooth;}
+
+/* Estilo para el Body */
+body {
+
+    font-family: 'VT323', monospace;
+    background: var(--pixel);
+    color: var(--white);
+    overflow-x: hidden;
+    image-rendering: pixelated;
+
+}
+
+/* Aplicamos Estilo al PseudoElemento ::after del Body para Crear un Efecto de Rejilla de Pixeles */
+body::after {                                                        
+
+    content: '';
+    position: fixed;
+    inset: 0;                                                                                           /* Permite que ocupe todo el Espacio del Viewport */ 
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.08) 2px,
+        rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;                                                                               /* Permite que los Eventos de Ratón Pasen a Través de la Rejilla */       
+    z-index: 9999;                                                                                      /* Asegura que la Rejilla se Superponga a Todo el Contenido */
+
+}
+
+/* Borde Pixelado para Elementos Destacados */
+.px-border {
+
+    box-shadow:                                                                                         /* Crea un Borde Pixelado con Múltiples Capas de Sombra */
+        0 0 0 4px var(--black),
+        0 0 0 8px var(--white),
+        0 0 0 12px var(--black);
+
+}
+
+/* Variante Más Delgada del Borde Pixelado */
+.px-border-sm {
+
+    box-shadow:                                                                                         /* Crea un Borde Pixelado Más Delicado con Menos Capas de Sombra */ 
+        0 0 0 3px var(--black),
+        0 0 0 6px var(--white),
+        0 0 0 9px var(--black);
+
+}
+
+/* Barra de Navegación */
+nav {
+
+    position: fixed;
+    top: 0;
+    width: 100%; 
+    z-index: 100;                                                                                       /* Asegura que la Barra de Navegación se Superponga a Otros Elementos */
+    background: var(--black);
+    border-bottom: 4px solid var(--yellow);
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+/* Logo de Navegación con Estilo Pixelado */
+.nav-logo {
+
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.85rem;
+    color: var(--yellow);
+    text-decoration: none;
+    text-shadow: 3px 3px 0 var(--orange);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+}
+
+/* Pixel Icono de Pájaro para el Logo de Navegación */
+.nav-bird {
+
+    width: 32px;
+    height: 32px;
+    background: var(--yellow);
+    border-radius: 50% 50% 50% 30%;
+    position: relative;
+    animation: birdFlap 0.4s ease-in-out infinite alternate;                                            /* Animación de Aleteo para el Pájaro */
+
+}
+
+/* PseudoElemento ::before para el Pico del Pájaro */
+.nav-bird::before {
+
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 8px;
+    width: 12px;
+    height: 8px;
+    background: var(--orange);
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);                                                       /* Crea una Forma de Triángulo para el Pico del Pájaro */
+
+}
+
+/* PseudoElemento ::after para el Ojo del Pájaro */
+.nav-bird::after {
+
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 18px;
+    width: 7px;
+    height: 7px;
+    background: var(--black);
+    border-radius: 50%;
+
+}
+
+/* Animación de Aleteo para el Pájaro en el Logo de Navegación */
+@keyframes birdFlap {from {transform: translateY(0);} to {transform: translateY(-6px);}}
+
+/* Enlaces de Navegación con Estilo Pixelado */
+.nav-links {display: flex; gap: 28px; list-style: none;}
+
+/* Enlaces HTML para la Navegación con Estilo Pixelado */
+.nav-links a {
+
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;                                                                             /* Transición Suave para el Cambio de Color al Hover */
+    letter-spacing: 1px;
+
+}
+
+/* Estado de Hover de los Enlaces de Navegación para Resaltar con Color Amarillo */
+.nav-links a:hover {color: var(--yellow);}
+
+/* Sección Principal (Hero) con Fondo de Cielo y Nubes Pixeladas */
+.hero {
+
+    min-height: 100vh;
+    background: var(--sky);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+
+}
+
+/* Nubes de Decoración en el Fondo del Hero con Animación de Movimiento */
+.cloud {
+
+    position: absolute;
+    background: white;
+    animation: cloudMove linear infinite;                                                               /* Animación de MOvimiento Infinita para la Nube */                                                         
+ 
+}
+
+/* PseudoElementos ::before y ::after para Crear Formas de Nubes Más Complejas */
+.cloud::before, .cloud::after {content: ''; position: absolute; background: white;}                
+
+/* Estilos de la Nube 1 */
+.c1 {width: 80px; height: 24px; top: 15%; left: -100px; animation-duration: 20s;}                       /* Nube 1 con Animación de Movimiento de 20 Segundos */
+.c1::before {width: 40px; height: 32px; top: -20px; left: 12px; }                                       /* PseudoElemento ::before, creando Forma de Nube Más Compleja (Nube 1) */
+.c1::after  {width: 32px; height: 28px; top: -16px; left: 36px; }                                       /* PseudoElemento ::after, creando Forma de Nube Más Compleja (Nube 1)   */
+
+/* Estilos de la Nube 2*/
+.c2 {width: 64px; height: 20px; top: 35%; left: -100px; animation-duration: 28s; animation-delay: -10s;}/* Nube 2 con Animación Movimiento 28 Segundos y Retraso 10 Segundos */
+.c2::before {width: 32px; height: 24px; top: -16px; left: 10px;}                                        /* PseudoElemento ::before, creando Forma de Nube Más Compleja (Nube 2) */
+.c2::after  {width: 28px; height: 20px; top: -12px; left: 30px;}                                        /* PseudoElemento ::after, creando Forma de Nube Más Compleja (Nube 2) */
+
+/* Estilos de la Nube 3 */
+.c3 {width: 96px; height: 28px; top: 60%; left: -100px; animation-duration: 22s; animation-delay: -5s;} /* Nube 3 con Animación Movimiento 22 Segundos y Retraso 5 Segundos */
+.c3::before {width: 48px; height: 36px; top: -24px; left: 16px;}                                        /* PseudoElemento ::before, creando Forma de Nube Más Compleja (Nube 3) */
+.c3::after  {width: 40px; height: 32px; top: -20px; left: 44px;}                                        /* PseudoElemento ::after, creando Forma de Nube Más Compleja (Nube 3) */
+
+/* Animación de Movimiento para Nubes, moviéndolas de izquierda a derecha a través del Fondo del Hero */
+@keyframes cloudMove {from{left:-200px;} to {left:110%;}} 
+
+/* Decoraciónd de Tuberías en el Fondo del Hero */
+.pipe-deco {
+
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    background: var(--green2);
+    border-left: 6px solid #2e7d32;
+    border-right: 6px solid #66bb6a;
+
+}
+
+/* PseudoElemento ::before para la Parte Superior de las Tuberías, creando Efecto de Tapa con Bordes */
+.pipe-deco::before {
+
+    content: '';
+    position: absolute;
+    top: -24px;
+    left: -12px;
+    right: -12px;
+    height: 24px;
+    background: var(--green2);
+    border-left: 6px solid #2e7d32;
+    border-right: 6px solid #66bb6a;
+    border-top: 4px solid #1b5e20;
+
+}
+
+/* Tuberías */
+.pd1 {height: 220px; right: 10%; }                                                                      /* Tubería 1 */
+.pd2 {height: 150px; right: 28%; }                                                                      /* Tubería 2 */
+
+/* Piso del Hero con Estilo Pixelado */
+.ground {
+
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    height: 60px;
+    background: #8d6e63;
+    border-top: 6px solid #5d4037;
+
+}
+
+/* PseudoElemento ::before para Piso del Hero, creando Capa Adicional para Efecto de Suelo */
+.ground::before {
+
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0;
+    height: 18px;
+    background: #a5d6a7;
+    border-top: 4px solid #66bb6a;
+
+}
+
+/* Puntuación Pixelada que Aparece al Golpear un Obstáculo, con Animación de Pop */
+.pixel-score {
+
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);                                                                        /* Centra Horizontalmente la Puntuación en el Punto de Impacto */
+    background: rgba(0,0,0,0.5);
+    border: 4px solid white;
+    padding: 10px 24px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.5);                                                           /* Sombra para Hacer que la Puntuación Resalte sobre el Fondo del Hero */
+    animation: scorePop .5s ease-in-out infinite alternate;                                             /* Animación de Pop para la Puntuación */
+
+}
+
+/* Animación de Pop para la Puntuación Pixelada */
+@keyframes scorePop {
+    
+    from {transform: translateX(-50%) scale(1);} to {transform: translateX(-50%) scale(1.05);}
+
+}
+
+/* Contenido del Hero con Estilo Pixelado */
+.hero-content {
+
+    position: relative;
+    z-index: 5;                                                                                         /* Contenido del Hero se Superponga a las Nubes y Tuberías de Fondo */
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);                                                              /* Contenido del Hero en 2 Columnas: Texto en Izquierda y Pantalla en Derecha */
+    gap: 60px;
+    align-items: center;
+
+}
+
+/* Título Principal del Hero con Estilo Pixelado y Sombra para Resaltar */
+.hero-title {
+
+    font-family:'Press Start 2P', monospace;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: var(--white);
+    text-shadow: 4px 4px 0 var(--black);
+
+}
+
+
+/* Texto Amarillo dentro del Título Principal del Hero con Sombra para Resaltar */
+.hero-title .t-yellow { 
+    
+    color: var(--yellow); 
+    text-shadow: 4px 4px 0 var(--orange); 
+    display: block;                                                                                     /* Contenido  en una Nueva Línea dentro del Título Principal del Hero */
+
+}
+
+/* Texto Verde dentro del Título Principal del Hero con Sombra para Resaltar */
+.hero-title .t-green  { 
+    
+    color: #c8e6c9; 
+    font-size: 0.45em; 
+    display: block;                                                                                     /* Contenido  en una Nueva Línea dentro del Título Principal del Hero */
+    margin-top: 10px; 
+    text-shadow: 2px 2px 0 var(--green2); 
+
+}
+
+/* Subtítulo del Hero con Estilo Pixelado y Color SemiTransparente para Resaltar sobre el Fondo */
+.hero-sub {
+
+    font-size: 1.4rem;
+    color: rgba(0,0,0,0.7);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 420px;
+    font-family: 'VT323', monospace;
+
+}
+
+/* Botones del Hero con Estilo Pixelado y Efecto de Presión al Hacer Click */
+.hero-btns {display: flex; gap: 16px; flex-wrap: wrap;}
+
+/* Botones Pixelados con Estilo Común para el Hero, con Transición para Efecto Presión al Hacer Click */
+.px-btn {
+
+    display: inline-flex;                                                                               /* Permite que el Botón se Adapte al Contenido y Mantenga el Estilo Pixelado, con Alineación de Íconos y Texto */
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.65rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    cursor: pointer;                                                                                    /* Cambia el Cursor a un Icono de Mano para Indicar que el Elemento es Interactivo */
+    border: none;
+    transition: transform .1s;                                                                          
+    position: relative;
+
+}
+
+/* Estado de Presión de los Botones Pixelados para Crear un Efecto de Presión al Hacer Click */
+.px-btn:active {transform: translate(3px, 3px);}
+
+/* Botón Naranja con Estilo Pixelado para el Hero, con Sombra para Resaltar */
+.btn-orange {
+
+    background: var(--orange);
+    color: white;
+    box-shadow: 4px 4px 0 #aa3300, 8px 8px 0 var(--black);
+
+}
+
+/* Estado de Hover del Botón Naranja para Resaltar con Sombra y Movimiento */
+.btn-orange:hover {
+    
+    box-shadow: 6px 6px 0 #aa3300, 10px 10px 0 var(--black); 
+    transform: translate(-2px,-2px); 
+
+}
+
+/* Botón Verde con Estilo Pixelado para el Hero, con Sombra para Resaltar */
+.btn-green {
+
+    background: var(--green);
+    color: white;
+    box-shadow: 4px 4px 0 #1b5e20, 8px 8px 0 var(--black);
+
+}
+
+/* Estado de Hover del Botón Verde para Resaltar con Sombra y Movimiento */
+.btn-green:hover {
+
+    box-shadow: 6px 6px 0 #1b5e20, 10px 10px 0 var(--black); 
+    transform: translate(-2px,-2px); 
+
+}
+
+/* Contenedor de Capturas de Pantalla del Hero con Posicionamiento Relativo para Superponer Elementos */
+.hero-screens {
+    
+    position: relative; 
+    z-index: 5;                                                                                          /* Capturas se Superpongan a las Nubes y Tuberías de Fondo */
+ 
+}
+
+/* Ventana de Juego Pixelada para Mostrar Capturas de Pantalla del Hero, con Estilo de Borde Pixelado */
+.game-window {
+
+    background: var(--black);
+    border: 6px solid var(--black);
+    position: relative;
+
+}
+
+/* Barra Superior de la Ventana de Juego con Estilo Pixelado */
+.game-window-bar {
+
+    background: #333;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 4px solid var(--black);
+
+}
+
+/* Botones de Control de la Ventana de Juego con Estilo Pixelado */
+.wdot {width: 14px; height: 14px; border-radius: 50%;}
+
+/* Colores de Botones de Ventana de Juego: Rojo para Cerrar, Amarillo para Minimizar, Verde */
+.wd1{background: #ff5f57;} .wd2{background: #febc2e;} .wd3{background: #28c840;}
+
+/* Título de la Ventana de Juego con Estilo Pixelado */
+.wbar-title {
+    
+    font-family: 'Press Start 2P', monospace; 
+    font-size: 0.5rem; 
+    color: #ccc; 
+    margin-left: 8px;
+
+}
+
+/* Imagen dentro de la Ventana de Juego, con Ancho Completo y Estilo Pixelado */
+.game-window img {
+    
+    width: 100%; 
+    display: block;                                                                                     /* Elimina el Espacio Inferior que Aparece por Defecto en Imágenes */
+
+}
+
+/* Sección Genérica con Padding para Separar el Contenido */
+section {padding:80px 0;}
+
+/* Contenedor Principal para Centrar el Contenido y Limitar su Ancho, con Padding */
+.container {max-width: 1150px; margin: 0 auto; padding: 0 40px; }
+
+/* Encabezado de Sección con Estilo Pixelado y Margen Inferior para Separar del Contenido */
+.px-section-header {margin-bottom:50px;}
+
+/* Etiqueta de Sección Pixelada para Resaltar el Tipo de Contenido */
+.px-tag {
+
+    display: inline-block;                                                                              /* Etiqueta se Adapte al Contenido y Mantenga el Estilo Pixelado */
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: var(--black);
+    background: var(--yellow);
+    padding: 6px 14px;
+    margin-bottom: 16px;
+    box-shadow: 3px 3px 0 var(--orange);
+    letter-spacing: 1px;
+
+}
+
+/* Título de Sección Principal con Estilo Pixelado y Sombra para Resaltar */
+.px-title {
+
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    line-height: 1.5;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+
+}
+
+/* Etiqueta de Texto Amarillo dentro del Título de Sección Principal con Sombra para Resaltar */
+.px-title span {color: var(--yellow); text-shadow: 3px 3px 0 var(--orange);}
+
+/* Subtítulo de Sección con Estilo Pixelado y Color SemiTransparente para Resaltar sobre el Fondo */
+.stats-section { 
+    
+    background: var(--black); 
+    border-top: 6px solid var(--yellow); 
+    border-bottom: 6px solid var(--yellow); 
+
+}
+
+/* Filas de Estadísticas con Estilo Pixelado, utilizando Grid para Distribuir en 4 Columnas */
+.stats-row {
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);                                                               /* Distribuye las Estadísticas en 4 Columnas de Igual Ancho */
+    gap: 0;
+
+}
+
+/* Bloque de Estadística Individual con Estilo Pixelado, con Padding y Borde */
+.stat-block {
+
+    padding: 36px 24px;
+    text-align: center;
+    border-right: 4px solid #222;
+    transition: background 0.2s;                                                                        /* Transición Suave para el Cambio de Fondo al Hover */
+
+}
+
+/* Último Bloque de Estadística no Tiene Borde Derecho para Evitar Doble Borde al Final de la Fila */
+.stat-block:last-child {border-right:none;}
+
+/* Estado de Hover del Bloque de Estadística para Resaltar con Fondo Oscuro */
+.stat-block:hover {background:#111;}
+
+/* Número de Estadística con Estilo Pixelado, Tamaño Grande, Color Amarillo y Sombra para Resaltar */
+.stat-num {
+
+    font-family: 'Press Start 2P', monospace;
+    font-size: 2rem;
+    color: var(--yellow);
+    text-shadow: 3px 3px 0 var(--orange);
+    display: block;                                                                                     /* Elimina el Espacio Inferior que Aparece por Defecto en Imágenes */
+    margin-bottom: 12px;
+
+}
+
+/* Pestaña de Etiqueta de Estadística con Estilo Pixelado */
+.stat-label {
+
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+
+}
+
+/* Sección de Mecánicas con Fondo Pixelado */
+.mechanics-section {background: var(--pixel);}
+
+/* Cuadrícula de Mecánicas con Estilo Pixelado, utilizando Grid para Distribuir en 3 Columnas */
+.mech-grid {
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);                                                               /* Distribuye las Mecánicas en 3 Columnas de Igual Ancho */
+    gap: 24px;
+    margin-top: 50px;
+
+}
+
+/* Carta de Mecánica Individual con Estilo Pixelado */
+.mech-card {
+
+    background: var(--black);
+    border: 4px solid #222;
+    padding: 30px 24px;
+    position: relative;
+    transition: all 0.2s;                                                                               /* Transición de Todas las Propiedades */
+    overflow: hidden;
+
+}
+
+/* PseudoElemento ::before para Crear una Barra Superior de Color Verde en la Carta de Mecánica */
+.mech-card::before {
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--green);
+
+}
+
+/* Estado de Hover de la Carta de Mecánica para Resaltar con Borde Amarillo, Movimiento y Sombra */
+.mech-card:hover { 
+    
+    border-color: var(--yellow); 
+    transform: translate(-4px,-4px);                                                                    /* Mueve Carta Hacia Arriba e Izquierda para Crear Efecto Elevación */
+    box-shadow: 8px 8px 0 var(--yellow); 
+
+}
+
+/* Icono Pixelado para la Mecánica, con Tamaño Fijo y Margen Inferior para Separar del Texto */
+.mech-pixel-icon {
+
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    image-rendering: pixelated;
+
+}
+
+/* Icono del Pájaro para la Mecánica, con Forma Redondeada y Pico, utilizando PseudoElemento ::before */
+.icon-bird {
+
+    width: 48px;
+    height: 48px;
+    background: var(--yellow);
+    border-radius: 50% 50% 50% 30%;
+    position: relative;
+    display: inline-block;                                                                              /* Icono se Adapte al Contenido y Mantenga el Estilo Pixelado */
+ 
+}
+
+/* PseudoElemento ::before para el Pico del Pájaro, creando una Forma de Triángulo para el Pico */
+.icon-bird::before {
+
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    width: 14px;
+    height: 10px;
+    background: var(--orange);
+    clip-path: polygon(0 50%,100% 0,100% 100%);                                                         /* Crea una Forma de Triángulo para el Pico del Pájaro */
+
+}
+
+/* Icono de Mecánica */
+.mech-icon {
+    
+    font-size: 2.5rem; 
+    margin-bottom: 16px; 
+    display: block;                                                                                     /* Elimina el Espacio Inferior que Aparece por Defecto en Imágenes */
+
+}
+
+/* Título de Mecánica con Estilo Pixelado */
+.mech-title { 
+    
+    font-family: 'Press Start 2P', monospace; 
+    font-size: 0.7rem; 
+    color: var(--yellow); 
+    margin-bottom: 12px; 
+    line-height: 1.5; 
+
+}
+
+/* Descripción de Mecánica */
+.mech-desc {font-size: 1.3rem; color: rgba(255, 255, 255, 0.7); line-height: 1.6;}
+
+/* Código Pixelado */
+.px-code {
+
+    display: inline-block;                                                                              /* Código se Adapte al Contenido y Mantenga el Estilo Pixelado */
+    background: #111;
+    border: 2px solid #444;
+    padding: 4px 10px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: var(--green);
+    margin-top: 12px;
+
+}
+
+/* Sección de Capturas de Pantalla */
+.screens-section {background: #0a0a1a; border-top: 6px solid #333;}
+
+/* Cuadrícula de Capturas de Pantalla */
+.screens-grid {
+
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);                                                               /* Distribuye las Capturas en 2 Columnas de Igual Ancho */                                         
+    gap: 30px;
+    margin-top: 50px;
+
+}
+
+/* Pantalla Pixelada para Mostrar Capturas de Pantalla */
+.px-screen {
+
+    position: relative;
+    transition: transform 0.2s;                                                                         /* Transición Suave para el Movimiento al Hover */             
+}
+
+/* Estado de Hover de la Pantalla Pixelada */
+.px-screen:hover {transform: translate(-4px,-4px);}
+
+/* Sombra de Borde Pixelado para la Pantalla Pixelada al Hover e Inner */
+.px-screen:hover .px-screen-inner {box-shadow: 8px 8px 0 var(--yellow);}
+
+/* Interior de la Pantalla Pixelada con Bg Negro */
+.px-screen-inner {
+
+    background: var(--black);
+    border: 6px solid #333;
+    transition: box-shadow 0.2s;                                                                        /* Transición de Sombra de Box */
+
+}
+
+/* Barra Pixelada de la Pantalla de Juego */
+.px-screen-bar {
+
+    background: #1a1a1a;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 4px solid #333;
+
+}
+
+/* Lado Izquierdo de la Barra Pixelada de la Pantalla de Juego para el Título y Estado de Transmisión */
+.px-screen-bar-left {display: flex; align-items: center; gap: 8px;}
+
+/* Título de la Pantalla de Juego */
+.px-screen-title {font-family: 'Press Start 2P', monospace; font-size: 0.5rem; color: #888;}
+
+/* Indicador de Transmisión en Vivo */
+.px-live { 
+    
+    font-family: 'Press Start 2P', monospace; 
+    font-size: 0.45rem; 
+    color: var(--green); 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+
+}
+
+/* PseudoElemento ::before para el Indicador de Transmisión en Vivo */
+.px-live::before { 
+    
+    content: ''; 
+    width: 8px; 
+    height: 8px; 
+    background: var(--green); 
+    display: inline-block;                                                                              /* Adaptar al Contenido y Mantenga el Estilo Pixelado */
+    animation: blinkDot 1s step-end infinite;                                                           /* Animación de Parpadeo para Punto del Indicador de Transmisión en Vivo */
+
+}
+
+/* Animación de Parpadeo para el Punto del Indicador de Transmisión en Vivo */
+@keyframes blinkDot {0%, 100% {opacity: 1;} 50% {opacity: 0;}}
+
+/* Imagen dentro de la Pantalla Pixelada, con Ancho Completo y Estilo Pixelado */
+.px-screen img { 
+    
+    width: 100%; 
+    display: block;                                                                                     /* Elimina el Espacio Inferior que Aparece por Defecto en Imágenes */
+
+}
+
+/* Pestaña Inferior de la Pantalla Pixelada para Mostrar Información Adicional, con Estilo Pixelado */
+.px-screen-label {
+
+    padding: 14px 18px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.6);
+    border-top: 4px solid #333;
+    background: #0d0d0d;
+ 
+}
+
+/* Sección de Controles con Fondo Pixelado */
+.controls-section {background: var(--pixel);}
+
+/* Tabla de Controles con Estilo Pixelado, con Bordes y Espaciado */
+.controls-table {
+
+    width: 100%;
+    margin-top: 50px;
+    border-collapse: collapse;
+    border: 4px solid #333;
+
+}
+
+/* Encabezado de Tabla de Controles con Estilo Pixelado, Fondo Verde, Bordes y Color de Texto Blanco */
+.controls-table th {
+
+    background: var(--green2);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    padding: 16px;
+    text-align: left;
+    border: 4px solid #1b5e20;
+    color: white;
+
+}
+
+/* Datos de la Tabla de Controles con Estilo Pixelado */
+.controls-table td {
+    
+    padding: 16px;                                                                                      
+    border: 3px solid #222;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.8);
+
+}
+
+/* Filas Pares de la Tabla de Controles con Fondo Oscuro para Mejorar la Legibilidad */
+.controls-table tr:nth-child(even) td {background: #0d0d0d;}
+
+/* Estado de Hover de las Filas de Tabla de Controles para Resaltar con Fondo Oscuro y Texto Blanco */
+.controls-table tr:hover td { background: #111; color: white; }
+
+/* Etiqueta de Tecla con Estilo Pixelado para Mostrar los Controles en la Tabla */
+.key-badge {
+
+    display: inline-block;                                                                              /* La Etiqueta se Adapte al Contenido y Mantenga el Estilo Pixelado */
+    background: var(--black);
+    border: 3px solid #555;
+    box-shadow: 0 4px 0 #333;
+    padding: 6px 14px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    color: var(--yellow);
+
+}
+
+/* Sección de Descarga con Fondo de Cielo Pixelado, Tuberías en el Fondo y Piso con Estilo Pixelado */
+.dl-section {
+
+    background: var(--sky);
+    border-top: 6px solid var(--black);
+    padding: 100px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+}
+
+/* PseudoElemento ::after para Crear el Piso del Hero con Estilo Pixelado en la Sección de Descarga */
+.dl-section::after {
+
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: #8d6e63;
+    border-top: 6px solid #5d4037;
+
+}
+
+/* Contenedor de Tuberías en el Fondo de la Sección de Descarga */
+.dl-pipes {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 40px; 
+    pointer-events: none;                                                                               /* Clics Pasen a Través de las Tuberías para Interactuar con el Contenido */
+    z-index: 0;                                                                                         /* Tuberías se Colocan Detrás del Contenido de la Sección de Descarga */
+  
+}
+
+/* Tuberías para la Sección de Descarga con Estilo Pixelado, con Bordes para Crear Efecto de Tubería */
+.dl-pipe {
+
+    width: 64px;
+    background: var(--green2);
+    border-left: 5px solid #2e7d32;
+    border-right: 5px solid #66bb6a;
+    position: absolute;
+    bottom: 0;
+
+}
+
+/* PseudoElemento ::before para la Parte Superior de las Tuberías, creando Efecto de Tapa con Bordes */
+.dl-pipe::before {
+
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    right: -10px;
+    height: 20px;
+    background: var(--green2);
+    border-left: 5px solid #2e7d32;
+    border-right: 5px solid #66bb6a;
+    border-top: 4px solid #1b5e20;
+
+}
+
+/* Parte Superior de las Tuberías */
+.dl-pipe-top {
+
+    width: 64px;
+    background: var(--green2);
+    border-left: 5px solid #2e7d32;
+    border-right: 5px solid #66bb6a;
+    position: absolute;
+    top: 0; 
+
+}
+
+/* PseudoElemento ::after para la Parte Inferior de las Tuberías, creando Efecto de Base con Bordes */
+.dl-pipe-top::after {
+
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    right: -10px;
+    height: 20px;
+    background: var(--green2);
+    border-left: 5px solid #2e7d32;
+    border-right: 5px solid #66bb6a;
+    border-bottom: 4px solid #1b5e20;
+
+}
+
+/* Contenido Interior de la Sección de Descarga con Estilo Pixelado */
+.dl-inner { 
+    
+    position: relative; 
+    z-index: 2;                                                                                         /* Contenido se Superponga a las Tuberías de Fondo */
+
+}
+
+
+/* Título Principal de la Sección de Descarga con Estilo Pixelado */
+.dl-title {
+
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(1.2rem, 3vw, 2.2rem);
+    color: var(--black);
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 16px;
+
+}
+
+/* Subtítulo de la Sección de Descarga con Estilo Pixelado */
+.dl-sub {
+    
+    font-size: 1.5rem; 
+    color: rgba(0, 0, 0, 0.65); 
+    max-width: 500px;
+    margin: 0 auto 36px; 
+    line-height: 1.5; 
+
+}
+
+/* Botón Grande de Descarga con Estilo Pixelado */
+.dl-big-btn {
+
+    display: inline-flex;                                                                               /* Botón se Adapte al Contenido y Mantenga el Estilo Pixelado */
+    align-items: center;
+    gap: 12px;
+    padding: 18px 44px;
+    background: var(--orange);
+    color: white;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-shadow: 6px 6px 0 #aa3300, 10px 10px 0 var(--black);
+    transition: all 0.1s;                                                                               /* Transición para Todas las Propiedades para Efecto de Hover y Click */
+    margin-bottom: 30px;
+
+}
+
+/* Estado Hover del Botón Grande de Descarga para Resaltar con Movimiento y Sombra */
+.dl-big-btn:hover { 
+    
+    transform: translate(-4px,-4px);                                                                    /* Mueve el Botón Hacia Arriba e Izquierda para Crear Efecto de Elevación */
+    box-shadow: 10px 10px 0 #aa3300, 14px 14px 0 var(--black); 
+
+}
+
+/* Estado de Presión del Botón Grande de Descarga para Crear Efecto de Presión al Hacer Click */
+.dl-big-btn:active { 
+    
+    transform: translate(4px,4px);                                                                      /* Mueve el Botón Hacia Abajo y Derecha para Crear Efecto de Presión al Hacer Click */
+    box-shadow: 2px 2px 0 #aa3300, 4px 4px 0 var(--black); 
+
+}
+
+/* Fila de Especificaciones Técnicas con Estilo Pixelado */
+.specs-row {
+    
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+
+}
+
+/* Etiqueta de Especificación Técnica con Estilo Pixelado para Resaltar cada Especificación */
+.spec-tag {
+
+    background: rgba(0,0,0,0.15);
+    border: 3px solid rgba(0,0,0,0.25);
+    padding: 8px 16px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: rgba(0,0,0,0.7);
+
+}
+
+/* Pie de Página */
+footer {
+
+    background: var(--black);
+    border-top: 6px solid var(--yellow);
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+ 
+/* Lado Izquierdo del Pie de Página con Estilo Pixelado  */
+.f-left { 
+    
+    font-family: 'Press Start 2P', monospace; 
+    font-size: 0.5rem; 
+    color: #555; 
+    line-height: 2; 
+
+}
+
+/* Texto Amarillo dentro del Lado Izquierdo del Pie de Página con Sombra para Resaltar */
+.f-left span {color: var(--yellow);}
+
+/* Lado Derecho del Pie de Página con Estilo Pixelado para Enlaces de Redes Sociales */
+.f-right {display: flex; gap: 20px;}
+
+/* Enlaces en el Lado Derecho del Pie de Página con Estilo Pixelado */
+.f-right a {
+    
+    font-family: 'Press Start 2P', monospace; 
+    font-size: 0.5rem;
+     color: #555; 
+     text-decoration: none; 
+     transition: color 0.2s; 
+    
+}
+
+/* Estado de Hover de los Enlaces en Lado Derecho del Pie de Página para Resaltar con Color Amarillo */
+.f-right a:hover {color: var(--yellow);}
+
+/* Animación de Fade-In para Elementos que Aparecen al Hacer Scroll */
+.fade-in {opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease;}
+
+/* Clase Visible para Activar la Animación de Fade-In cuando el Elemento Entra en el Viewport */
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+/* Responsive Design para Dispositivos con Ancho Máximo de 900px */
+@media(max-width: 900px){
+
+    nav{padding: 12px 16px;}                                                                            /* Navegación: Reducimos Padding */
+    .nav-links{display: none;}                                                                          /* Enlaces Navegación: Ocultamos para Móvil */ 
+    .container{padding: 0 20px;}                                                                        /* Conetenedor Principal: Reducimos Padding */
+    .hero-content{grid-template-columns: 1fr; gap: 40px;}                                               /* Contenido Hero: Cambiamos a una Sola Columna y Reducimos el Gap */
+    .screens-grid{grid-template-columns: 1fr;}                                                          /* Cuadrícula de Capturas de Pantalla: Cambiamos a una Sola Columna */
+    .mech-grid{grid-template-columns: 1fr;}                                                             /* Cuadrícula de Mecánicas: Cambiamos a una Sola Columna */
+    .stats-row{grid-template-columns: repeat(2, 1fr);}                                                  /* Filas de Estadísticas: Cambiamos a 2 Columnas para Mejorar Legibilidad en Pantallas Pequeñas */
+    footer{flex-direction: column; gap: 16px; text-align: center;}                                      /* Pie de Página: Cambiamos a Diseño en Columna, Agregamos Gap y Centramos Texto */
+
+}
+
+/*****************************************************************************************************************************************************************************/
+
