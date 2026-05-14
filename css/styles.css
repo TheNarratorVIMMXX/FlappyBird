@@ -1070,6 +1070,34 @@ footer {
 /* Clase Visible para Activar la Animación de Fade-In cuando el Elemento Entra en el Viewport */
 .fade-in.visible { opacity:1; transform:translateY(0); }
 
+/* Botón Flotante de Cambio de Idioma */
+#langToggleBtn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 200;
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #aa3300, 8px 8px 0 var(--black);
+    transition: all 0.1s;
+}
+
+#langToggleBtn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #aa3300, 10px 10px 0 var(--black);
+}
+
+#langToggleBtn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 2px 2px 0 #aa3300, 4px 4px 0 var(--black);
+}
+
 /* Responsive Design para Dispositivos con Ancho Máximo de 900px */
 @media(max-width: 900px){
 
@@ -1081,7 +1109,12 @@ footer {
     .mech-grid{grid-template-columns: 1fr;}                                                             /* Cuadrícula de Mecánicas: Cambiamos a una Sola Columna */
     .stats-row{grid-template-columns: repeat(2, 1fr);}                                                  /* Filas de Estadísticas: Cambiamos a 2 Columnas para Mejorar Legibilidad en Pantallas Pequeñas */
     footer{flex-direction: column; gap: 16px; text-align: center;}                                      /* Pie de Página: Cambiamos a Diseño en Columna, Agregamos Gap y Centramos Texto */
-
+    #langToggleBtn {
+        bottom: 16px;
+        right: 16px;
+        padding: 10px 14px;
+        font-size: 0.48rem;
+    }
 }
 
 /*****************************************************************************************************************************************************************************/
