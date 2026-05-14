@@ -15,9 +15,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">                                                    <!-- Metadatos para Responsive Design -->
-        <title>Flappy Bird — Clon en Python </title>
+        <title>Flappy Bird</title>
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" href="assets/imgs/logo.ico">
     </head>
 
     <!-- Cuerpo de la Página -->
@@ -29,10 +30,10 @@
             <!-- Enlaces de Navegación -->
             <a href="#" class="nav-logo"><div class="nav-bird"></div> FLAPPY BIRD</a>
             <ul class="nav-links">
-                <li><a href="#mecanicas">MECÁNICAS</a></li>
-                <li><a href="#capturas">CAPTURAS</a></li>
-                <li><a href="#controles">CONTROLES</a></li>
-                <li><a href="#descargar">DESCARGAR</a></li>
+                <li><a href="#mecanicas" data-i18n="navMech">MECÁNICAS</a></li>
+                <li><a href="#capturas" data-i18n="navScreens">CAPTURAS</a></li>
+                <li><a href="#controles" data-i18n="navControls">CONTROLES</a></li>
+                <li><a href="#descargar" data-i18n="navDownload">DESCARGAR</a></li>
             </ul>
 
         </nav>
@@ -59,15 +60,15 @@
                     <h1 class="hero-title">
                         FLAPPY
                         <span class="t-yellow">BIRD</span>
-                        <span class="t-green">Python · Tkinter · Pygame</span>
+                        <span class="t-green" data-i18n="heroT3">Python · Tkinter · Pygame</span>
                     </h1>
-                    <p class="hero-sub">
+                    <p class="hero-sub" data-i18n="heroSub">
                         Clon completo del clásico juego de móvil, desarrollado desde cero con Python. 
                         Física real, dificultad progresiva y efectos de sonido.
                     </p>
                     <div class="hero-btns">
-                        <a href="#descargar" class="px-btn btn-orange">▶ JUGAR AHORA</a>
-                        <a href="#capturas" class="px-btn btn-green">📸 VER CAPTURAS</a>
+                        <a href="#descargar" class="px-btn btn-orange" data-i18n="heroBtn1">▶ JUGAR AHORA</a>
+                        <a href="#capturas" class="px-btn btn-green" data-i18n="heroBtn2">📸 VER CAPTURAS</a>
                     </div>
                 </div>
                 <div class="hero-screens">
@@ -78,7 +79,7 @@
                             <div class="wdot wd3"></div>
                             <span class="wbar-title">Flappy Bird — Python Clone</span>
                         </div>
-                        <img src="imgs/start.png" alt="Gameplay">
+                        <img src="assets/imgs/start.png" alt="Gameplay">
                     </div>
                 </div>
             </div>
@@ -92,19 +93,19 @@
                 <div class="stats-row fade-in">                    
                     <div class="stat-block">
                         <span class="stat-num"> ~30MB</span>
-                        <span class="stat-label">DICK SPACE</span>
+                        <span class="stat-label" data-i18n="stat1Label">DICK SPACE</span>
                     </div>
                     <div class="stat-block">
                         <span class="stat-num">20px</span>
-                        <span class="stat-label">SPEED MAX</span>
+                        <span class="stat-label" data-i18n="stat2Label">SPEED MAX</span>
                     </div>
                     <div class="stat-block">
                         <span class="stat-num">250px</span>
-                        <span class="stat-label">GAP PIPES</span>
+                        <span class="stat-label" data-i18n="stat3Label">GAP PIPES</span>
                     </div>
                     <div class="stat-block">
                         <span class="stat-num">+0.5</span>
-                        <span class="stat-label">SPD / PIPE</span>
+                        <span class="stat-label" data-i18n="stat4Label">SPD / PIPE</span>
                     </div>
                 </div>
 
@@ -115,16 +116,16 @@
         <section class="mechanics-section" id="mecanicas">
             <div class="container">
                 <div class="px-section-header fade-in">
-                    <span class="px-tag">GAME MECHANICS</span>
-                    <h2 class="px-title">¿Cómo <span>Funciona</span>?</h2>
+                    <span class="px-tag" data-i18n="mechTag">GAME MECHANICS</span>
+                    <h2 class="px-title" data-i18n="mechTitle">¿Cómo <span>Funciona</span>?</h2>
                 </div>
 
                 <!-- Cuadrícula de Cartas de Mecánicas -->
                 <div class="mech-grid fade-in">
                     <div class="mech-card">
                         <span class="mech-icon">🐦</span>
-                        <p class="mech-title">FÍSICA DEL PÁJARO</p>
-                        <p class="mech-desc">
+                        <p class="mech-title" data-i18n="mech1Title">FÍSICA DEL PÁJARO</p>
+                        <p class="mech-desc" data-i18n="mech1Desc">
                             Gravedad constante de 5px por frame. Al presionar ESPACIO el pájaro recibe un 
                             impulso de -50px hacia arriba.
                         </p>
@@ -132,32 +133,32 @@
                     </div>
                     <div class="mech-card">
                         <span class="mech-icon">🟢</span>
-                        <p class="mech-title">TUBERÍAS INFINITAS</p>
-                        <p class="mech-desc">Las tuberías se generan con alturas aleatorias al salir de la pantalla, creando un desafío infinito y siempre distinto.</p>
+                        <p class="mech-title" data-i18n="mech2Title">TUBERÍAS INFINITAS</p>
+                        <p class="mech-desc" data-i18n="mech2Desc">Las tuberías se generan con alturas aleatorias al salir de la pantalla, creando un desafío infinito y siempre distinto.</p>
                         <span class="px-code">random.randint() · resize()</span>
                     </div>
                     <div class="mech-card">
                         <span class="mech-icon">⚡</span>
-                        <p class="mech-title">DIFICULTAD PROGRESIVA</p>
-                        <p class="mech-desc">Cada tubería superada aumenta la velocidad en 0.5px. La velocidad máxima es 20px por frame — imposible predecir.</p>
+                        <p class="mech-title" data-i18n="mech3Title">DIFICULTAD PROGRESIVA</p>
+                        <p class="mech-desc" data-i18n="mech3Desc">Cada tubería superada aumenta la velocidad en 0.5px. La velocidad máxima es 20px por frame — imposible predecir.</p>
                         <span class="px-code">speed = min(speed+0.5, 20)</span>
                     </div>
                     <div class="mech-card">
                         <span class="mech-icon">💥</span>
-                        <p class="mech-title">COLISIONES PRECISAS</p>
-                        <p class="mech-desc">Sistema de hitbox con bbox de canvas para detectar colisiones con tuberías, suelo y techo con máxima precisión.</p>
+                        <p class="mech-title" data-i18n="mech4Title">COLISIONES PRECISAS</p>
+                        <p class="mech-desc" data-i18n="mech4Desc">Sistema de hitbox con bbox de canvas para detectar colisiones con tuberías, suelo y techo con máxima precisión.</p>
                         <span class="px-code">canvas.bbox(bird)</span>
                     </div>
                     <div class="mech-card">
                         <span class="mech-icon">🔊</span>
-                        <p class="mech-title">AUDIO CON PYGAME</p>
-                        <p class="mech-desc">4 efectos de sonido: swoosh al saltar, punto al pasar tubería, hit al colisionar y die al terminar la partida.</p>
+                        <p class="mech-title" data-i18n="mech5Title">AUDIO CON PYGAME</p>
+                        <p class="mech-desc" data-i18n="mech5Desc">4 efectos de sonido: swoosh al saltar, punto al pasar tubería, hit al colisionar y die al terminar la partida.</p>
                         <span class="px-code">pygame.mixer · .play()</span>
                     </div>
                     <div class="mech-card">
                         <span class="mech-icon">🎨</span>
-                        <p class="mech-title">SPRITES CON PIL</p>
-                        <p class="mech-desc">Los sprites se cargan con PIL/Pillow y se redimensionan dinámicamente. La tubería superior se genera rotando 180° la inferior.</p>
+                        <p class="mech-title" data-i18n="mech6Title">SPRITES CON PIL</p>
+                        <p class="mech-desc" data-i18n="mech6Desc">Los sprites se cargan con PIL/Pillow y se redimensionan dinámicamente. La tubería superior se genera rotando 180° la inferior.</p>
                         <span class="px-code">PIL · .rotate(180)</span>
                     </div>
                 </div>
@@ -171,8 +172,8 @@
 
                 <!-- Encabezado de la Sección -->
                 <div class="px-section-header fade-in">
-                    <span class="px-tag">SCREENSHOTS</span>
-                    <h2 class="px-title">Así se <span>Ve el Juego</span></h2>
+                    <span class="px-tag" data-i18n="screensTag">SCREENSHOTS</span>
+                    <h2 class="px-title" data-i18n="screensTitle">Así se <span data-i18n="screensSpan">Ve el Juego</span></h2>
                 </div>
 
                 <!-- Cuadrícula de Capturas de Pantalla -->
@@ -184,12 +185,12 @@
                                     <div class="wdot wd1"></div>
                                     <div class="wdot wd2"></div>
                                     <div class="wdot wd3"></div>
-                                    <span class="px-screen-title">Flappy Bird — Gameplay</span>
+                                    <span class="px-screen-title" data-i18n="sc1Name">Flappy Bird — Gameplay</span>
                                 </div>
                                 <div class="px-live">LIVE</div>
                             </div>
-                            <img src="imgs/start.png" alt="Gameplay de Flappy Bird">
-                            <div class="px-screen-label">▶ PARTIDA EN CURSO — Pájaro esquivando tuberías</div>
+                            <img src="assets/imgs/start.png" alt="Gameplay de Flappy Bird">
+                            <div class="px-screen-label" data-i18n="sc1Label">▶ PARTIDA EN CURSO — Pájaro esquivando tuberías</div>
                         </div>
                     </div>
                     <div class="px-screen">
@@ -199,27 +200,27 @@
                                     <div class="wdot wd1"></div>
                                     <div class="wdot wd2"></div>
                                     <div class="wdot wd3"></div>
-                                    <span class="px-screen-title">Flappy Bird — Game Over</span>
+                                    <span class="px-screen-title" data-i18n="sc2Name">Flappy Bird — Game Over</span>
                                 </div>
                                 <div class="px-live" style="color:#ff5f57;">GAME OVER</div>
                             </div>
-                            <img src="imgs/game_over.png" alt="Pantalla Game Over">
-                            <div class="px-screen-label">💀 GAME OVER — Puntuación final y botón reiniciar</div>
+                            <img src="assets/imgs/game_over.png" alt="Pantalla Game Over">
+                            <div class="px-screen-label" data-i18n="sc2Label">💀 GAME OVER — Puntuación final y botón reiniciar</div>
                         </div>
                     </div>
                 </div>
 
             </div>
         </section>
-
+ 
         <!-- Sección de Controles -->
         <section class="controls-section" id="controles">
             <div class="container">
 
                 <!-- Encabezado de la Sección -->
                 <div class="px-section-header fade-in">
-                    <span class="px-tag">CONTROLS</span>
-                    <h2 class="px-title"><span>Controles</span> del Juego</h2>
+                    <span class="px-tag" data-i18n="controlsTag">CONTROLS</span> 
+                    <h2 class="px-title" data-i18n="controlsTitle"><span>Controles</span> del Juego</h2>
                 </div>
 
                 <!-- Tabla de Controles -->
@@ -228,9 +229,9 @@
                     <!-- Encabezado de la Tabla -->
                     <thead>
                         <tr>
-                            <th>TECLA / ACCIÓN</th>
-                            <th>FUNCIÓN</th>
-                            <th>DETALLE</th>
+                            <th data-i18n="thKey">TECLA / ACCIÓN</th>
+                            <th data-i18n="thFunc">FUNCIÓN</th>
+                            <th data-i18n="thDetail">DETALLE</th>
                         </tr>
                     </thead>
                 
@@ -238,13 +239,13 @@
                     <tbody>
                         <tr>
                             <td><span class="key-badge">SPACE</span></td>
-                            <td>Hacer saltar al pájaro</td>
-                            <td>Impulso de -50px · Suena swoosh.mp3</td>
+                            <td data-i18n="ctrl1Func">Hacer saltar al pájaro</td>
+                            <td data-i18n="ctrl1Detail">Impulso de -50px · Suena swoosh.mp3</td>
                         </tr>
                         <tr>
                             <td><span class="key-badge">CLICK 🔄</span></td>
-                            <td>Reiniciar partida</td>
-                            <td>Botón naranja en pantalla Game Over</td>
+                            <td data-i18n="ctrl2Func">Reiniciar partida</td>
+                            <td data-i18n="ctrl2Detail">Botón naranja en pantalla Game Over</td>
                         </tr>
                     </tbody>
                 
@@ -277,19 +278,19 @@
             <div class="dl-inner">
 
                 <!-- Encabezado y Descripción de la Sección de Descarga -->
-                <h2 class="dl-title">DESCARGA EL JUEGO</h2>
-                <p class="dl-sub">Sin instalar Python ni dependencias. Solo descarga el .exe y a jugar.</p>
-                <a href="https://github.com/TheNarratorVIMMXX/FlappyBird/releases/latest" class="dl-big-btn" target="_blank">
+                <h2 class="dl-title" data-i18n="dlTitle">DESCARGA EL JUEGO</h2>
+                <p class="dl-sub" data-i18n="dlSub">Sin instalar Python ni dependencias. Solo descarga el .exe y a jugar.</p>
+                <a href="https://github.com/TheNarratorVIMMXX/FlappyBird/releases/latest" class="dl-big-btn" target="_blank" data-i18n="dlBtn">
                     ⬇ FlappyBird.exe
                 </a>
 
                 <!-- Etiquetas de  Especificaciones -->
                 <div class="specs-row">
-                    <span class="spec-tag">🪟 WINDOWS 10/11</span>
-                    <span class="spec-tag">📐 1000×600 FIX</span>
-                    <span class="spec-tag">💾 ~30 MB</span>
-                    <span class="spec-tag">🔊 CON AUDIO</span>
-                    <span class="spec-tag">⚡ SIN INSTALACIÓN</span>
+                    <span class="spec-tag" data-i18n="spec1">🪟 WINDOWS 10/11</span>
+                    <span class="spec-tag" data-i18n="spec2">📐 1000×600 FIX</span>
+                    <span class="spec-tag" data-i18n="spec3">💾 ~30 MB</span>
+                    <span class="spec-tag" data-i18n="spec4">🔊 CON AUDIO</span>
+                    <span class="spec-tag" data-i18n="spec5">⚡ SIN INSTALACIÓN</span>
                 </div>
 
             </div>
@@ -300,14 +301,14 @@
             
             <!-- Derechos de Autor -->
             <div class="f-left">
-                <span>FLAPPY BIRD</span> — Clon en Python<br>
-                © 2025 Carlos Gabriel Magallanes López
+                <span>FLAPPY BIRD</span> — <span data-i18n="footerLeft">Clon en Python</span><br>
+                <span data-i18n="footerCopy">© 2025 Carlos Gabriel Magallanes López</span>
             </div>
             
             <!-- Enlaces de Contacto -->
             <div class="f-right">
-                <a href="https://github.com/TheNarratorVIMMXX/FlappyBird" target="_blank">GITHUB</a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cgmagallanes23@gmail.com" target="_blank">CONTACTO</a>
+                <a href="https://github.com/TheNarratorVIMMXX/FlappyBird" target="_blank" data-i18n="footerGh">GITHUB</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cgmagallanes23@gmail.com" target="_blank" data-i18n="footerContact">CONTACTO</a>
             </div>
         </footer>
         
