@@ -158,7 +158,7 @@ function applyLanguage(lang) {
     const t = translations[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {                                     // Traducir Elementos con Texto Simple
         const key = el.getAttribute('data-i18n');
-        if (t[key]) el.textContent = t[key];
+        if (t[key]) el.innerHTML = t[key];
     });
     document.querySelectorAll('[data-i18n-html]').forEach(el => {                                // Traducir Elementos con HTML Interno
         const key = el.getAttribute('data-i18n-html');
